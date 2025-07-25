@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:harcama_takibi/Route/identify_routes.dart';
 import 'package:harcama_takibi/screens/Login/login.dart';
 import 'package:harcama_takibi/screens/Login/Register/register.dart';
@@ -30,10 +31,12 @@ GoRouter router = GoRouter(
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
         return Scaffold(
+          key: ValueKey('shell_${context.locale.languageCode}'),
           backgroundColor: Colors.brown.shade50,
-
-          // ----------------------------------------------------------------
-          body: navigationShell,
+          body: Container(
+            key: ValueKey('body_${context.locale.languageCode}'),
+            child: navigationShell,
+          ),
           // ----------------------------------------------------------------
           bottomNavigationBar: Container(
             decoration: BoxDecoration(
