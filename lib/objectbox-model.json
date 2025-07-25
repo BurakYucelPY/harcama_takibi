@@ -1,0 +1,59 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:5291797905697239567",
+      "lastPropertyId": "7:387774212397392735",
+      "name": "Harcama",
+      "properties": [
+        {
+          "id": "1:1851255042722301758",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:2472601368384972959",
+          "name": "kategori",
+          "type": 9
+        },
+        {
+          "id": "3:3417403459507138343",
+          "name": "aciklama",
+          "type": 9
+        },
+        {
+          "id": "4:3061238153020581723",
+          "name": "tutar",
+          "type": 8
+        },
+        {
+          "id": "6:191334576088325764",
+          "name": "tarih",
+          "type": 10
+        },
+        {
+          "id": "7:387774212397392735",
+          "name": "ikonAdi",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "1:5291797905697239567",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [
+    6995894177672892932
+  ],
+  "retiredRelationUids": [],
+  "version": 1
+}

@@ -1,0 +1,112 @@
+anasayfa: "Home"
+ekle: "Add"
+istatistikler: "Statistics"
+ayarlar: "Settings"
+profil: "Profile"
+hakkinda: "About"
+dil: "Language"
+cikis: "Logout"
+
+login:
+  title: "Expense Tracker"
+  subtitle: "Manage your budget easily"
+  email: "E-mail"
+  password: "Password"
+  login_button: "Login"
+  register_link: "Don't have an account? Sign Up"
+
+register:
+  title: "Sign Up"
+  subtitle: "Create a new account"
+  fullname: "Full Name"
+  email: "E-mail"
+  password: "Password"
+  confirm_password: "Confirm Password"
+  register_button: "Sign Up"
+  login_link: "Already have an account? Login"
+  fullname_required: "Full name is required"
+  email_required: "E-mail is required"
+  email_invalid: "Please enter a valid e-mail address"
+  password_required: "Password is required"
+  password_length: "Password must be at least 6 characters"
+  confirm_password_required: "Confirm password is required"
+
+anasayfa_page:
+  gunaydin: "Good morning!                                     🌅"
+  iyi_gunler: "Good day!                                       ☀️"
+  iyi_aksamlar: "Good evening!                                 🌆"
+  iyi_geceler: "Good night!                                    🌙"
+  bugun: "Today"
+  bu_ay: "This Month"
+  toplam_kayit: "Total Records"
+  en_cok: "Most"
+  harcama: "expenses"
+  toplam_harcama: "Total expenses"
+  harcama_kaydi: "Expense records"
+  kullanilan_kategori: "Used category"
+  veri_yok: "No data"
+  son_harcamalar: "Recent Expenses"
+  henuz_harcama_yok: "You don't have any expense records yet"
+  ilk_harcama_ekle: "Use the \"Add\" page to add your first expense"
+
+ekle_page:
+  henuz_harcama_yok: "No expenses yet"
+  tutar: "Amount (₺)"
+  aciklama: "Description"
+  kategori_sec: "Select Category"
+  tarih: "Date"
+  harcama_ekle: "Add Expense"
+
+istatistikler_page:
+  gun: "Day"
+  ay: "Month"
+  yil: "Year"
+  harcama_ozeti: "Expense Summary"
+  toplam_harcama: "Total Expenses"
+  kategori_sayisi: "Category Count"
+  en_cok_harcanan: "Most Spent"
+  secilen_donemde_harcama_yok: "No expenses found for selected period"
+
+ayarlar_page:
+  profil_subtitle: "View and edit your personal information"
+  tema: "Theme"
+  tema_subtitle: "Select light/dark theme"
+  dil_subtitle: "Select application language"
+  verileri_sifirla: "Reset Data"
+  verileri_sifirla_subtitle: "Clear and reset all data"
+
+profil_page:
+  kullanici_adi: "Burak Yücel"
+  email: "burakyucel.py@gmail.com"
+  telefon: "+90 546 732 98 37"
+  profili_duzenle: "Edit Profile"
+
+hakkinda_page:
+  app_name: "Expense Tracker"
+  version: "Version 1.0.0"
+  description: "Easily track your daily expenses and manage your budget."
+  features: "Features"
+  feature_1: "Add and edit expenses"
+  feature_2: "Category-based tracking"
+  feature_3: "Detailed reports"
+  feature_4: "Secure data storage"
+  app_stats: "App Statistics"
+  installation: "Installation"
+  last_update: "Last Update"
+  platform: "Platform"
+  copyright: "© 2025 Expense Tracker"
+
+dil_page:
+  language_selection: "Select the language for the application"
+
+kategoriler:
+  giyim: "Clothing"
+  gida: "Food"
+  kozmetik: "Cosmetics"
+  akaryakit: "Fuel"
+  faturalar: "Bills"
+  teknoloji: "Technology"
+
+drawer:
+  kullanici_adi: "User Name"
+  kullanici_email: "usermail@gmail.com"

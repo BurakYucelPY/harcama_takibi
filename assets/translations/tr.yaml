@@ -1,0 +1,112 @@
+anasayfa: "Anasayfa"
+ekle: "Ekle"
+istatistikler: "İstatistikler"
+ayarlar: "Ayarlar"
+profil: "Profil"
+hakkinda: "Hakkında"
+dil: "Dil"
+cikis: "Çıkış"
+
+login:
+  title: "Harcama Analizi"
+  subtitle: "Bütçenizi kolayca yönetin"
+  email: "E-mail"
+  password: "Şifre"
+  login_button: "Giriş Yap"
+  register_link: "Hesabınız yok mu? Kayıt Ol"
+
+register:
+  title: "Kayıt Ol"
+  subtitle: "Yeni bir hesap oluşturun"
+  fullname: "Ad Soyad"
+  email: "E-mail"
+  password: "Şifre"
+  confirm_password: "Şifre Tekrar"
+  register_button: "Kayıt Ol"
+  login_link: "Zaten hesabınız var mı? Giriş Yap"
+  fullname_required: "Ad Soyad alanı zorunludur"
+  email_required: "E-mail alanı zorunludur"
+  email_invalid: "Geçerli bir e-mail adresi giriniz"
+  password_required: "Şifre alanı zorunludur"
+  password_length: "Şifre en az 6 karakter olmalıdır"
+  confirm_password_required: "Şifre tekrar alanı zorunludur"
+
+anasayfa_page:
+  gunaydin: "Günaydın!                                             🌅"
+  iyi_gunler: "İyi günler!                                         ☀️"
+  iyi_aksamlar: "İyi akşamlar!                                     🌆"
+  iyi_geceler: "İyi geceler!                                       🌙"
+  bugun: "Bugün"
+  bu_ay: "Bu Ay"
+  toplam_kayit: "Toplam Kayıt"
+  en_cok: "En Çok"
+  harcama: "harcama"
+  toplam_harcama: "Toplam harcama"
+  harcama_kaydi: "Harcama kaydı"
+  kullanilan_kategori: "Kullanılan kategori"
+  veri_yok: "Veri yok"
+  son_harcamalar: "Son Harcamalar"
+  henuz_harcama_yok: "Henüz harcama kaydınız bulunmuyor"
+  ilk_harcama_ekle: "İlk harcamanızı eklemek için \"Ekle\" sayfasını kullanın"
+
+ekle_page:
+  henuz_harcama_yok: "Henüz harcama yok"
+  tutar: "Tutar (₺)"
+  aciklama: "Açıklama"
+  kategori_sec: "Kategori Seç"
+  tarih: "Tarih"
+  harcama_ekle: "Harcama Ekle"
+
+istatistikler_page:
+  gun: "Gün"
+  ay: "Ay"
+  yil: "Yıl"
+  harcama_ozeti: "Harcama Özeti"
+  toplam_harcama: "Toplam Harcama"
+  kategori_sayisi: "Kategori Sayısı"
+  en_cok_harcanan: "En Çok Harcanan"
+  secilen_donemde_harcama_yok: "Seçilen dönemde harcama bulunamadı"
+
+ayarlar_page:
+  profil_subtitle: "Kişisel bilgilerini görüntüle ve düzenle"
+  tema: "Tema"
+  tema_subtitle: "Açık/Karanlık tema seç"
+  dil_subtitle: "Uygulama dilini seç"
+  verileri_sifirla: "Verileri Sıfırla"
+  verileri_sifirla_subtitle: "Tüm verileri temizle ve sıfırla"
+
+profil_page:
+  kullanici_adi: "Burak Yücel"
+  email: "burakyucel.py@gmail.com"
+  telefon: "+90 546 732 98 37"
+  profili_duzenle: "Profili Düzenle"
+
+hakkinda_page:
+  app_name: "Harcama Analizi"
+  version: "Sürüm 1.0.0"
+  description: "Günlük harcamalarınızı kolayca takip edin ve bütçenizi yönetin."
+  features: "Özellikler"
+  feature_1: "Harcama ekleme ve düzenleme"
+  feature_2: "Kategori bazlı takip"
+  feature_3: "Detaillı raporlar"
+  feature_4: "Güvenli veri saklama"
+  app_stats: "Uygulama İstatistikleri"
+  installation: "Kurulum"
+  last_update: "Son Güncelleme"
+  platform: "Platform"
+  copyright: "© 2025 Harcama Analizi"
+
+dil_page:
+  language_selection: "Uygulamayı kullanmak istediğiniz dili seçiniz"
+
+kategoriler:
+  giyim: "Giyim"
+  gida: "Gıda"
+  kozmetik: "Kozmetik"
+  akaryakit: "Akaryakıt"
+  faturalar: "Faturalar"
+  teknoloji: "Teknoloji"
+
+drawer:
+  kullanici_adi: "Kullanıcı Adı"
+  kullanici_email: "kullanicimail@gmail.com"
