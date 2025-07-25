@@ -31,9 +31,9 @@ class ObjectBoxService {
       _harcamaBox = _store.box<Harcama>();
 
       _isInitialized = true;
-      debugPrint('✅ ObjectBox başarıyla başlatıldı');
+      debugPrint('ObjectBox çalıştı.');
     } catch (e) {
-      debugPrint('❌ ObjectBox başlatılırken hata: $e');
+      debugPrint('ObjectBox çalışamadım :( $e');
       rethrow;
     }
   }
