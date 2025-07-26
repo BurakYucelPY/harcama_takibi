@@ -61,7 +61,8 @@ GoRouter router = GoRouter(
                     ),
                     onPressed: () {
                       drawerKapat(context);
-                      navigationShell.goBranch(0, initialLocation: true);
+                      navigationShell.goBranch(0,
+                          initialLocation: (navigationShell.currentIndex == 0));
                     },
                     iconSize: navigationShell.currentIndex == 0 ? 37 : 35,
                   ),
@@ -74,7 +75,8 @@ GoRouter router = GoRouter(
                     ),
                     onPressed: () {
                       drawerKapat(context);
-                      navigationShell.goBranch(1, initialLocation: true);
+                      navigationShell.goBranch(1,
+                          initialLocation: (navigationShell.currentIndex == 1));
                     },
                     iconSize: navigationShell.currentIndex == 1 ? 37 : 35,
                   ),
@@ -87,7 +89,8 @@ GoRouter router = GoRouter(
                     ),
                     onPressed: () {
                       drawerKapat(context);
-                      navigationShell.goBranch(2, initialLocation: true);
+                      navigationShell.goBranch(2,
+                          initialLocation: (navigationShell.currentIndex == 2));
                     },
                     iconSize: navigationShell.currentIndex == 2 ? 37 : 35,
                   ),
@@ -100,7 +103,8 @@ GoRouter router = GoRouter(
                     ),
                     onPressed: () {
                       drawerKapat(context);
-                      navigationShell.goBranch(3, initialLocation: true);
+                      navigationShell.goBranch(3,
+                          initialLocation: (navigationShell.currentIndex == 3));
                     },
                     iconSize: navigationShell.currentIndex == 3 ? 37 : 35,
                   ),
