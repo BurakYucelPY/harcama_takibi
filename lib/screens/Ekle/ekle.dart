@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import '../../db/harcama.dart';
+import '../../db/objectbox_harcama.dart';
 import '../../db/objectbox_service.dart';
 import 'ekle_view.dart';
 

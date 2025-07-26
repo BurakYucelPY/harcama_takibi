@@ -15,7 +15,7 @@ import 'package:objectbox/internal.dart'
 import 'package:objectbox/objectbox.dart' as obx;
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
-import 'db/harcama.dart';
+import 'db/objectbox_harcama.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 

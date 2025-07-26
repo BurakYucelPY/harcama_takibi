@@ -14,7 +14,7 @@ class ProfilView extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            backgroundColor: Colors.green.shade100,
+            backgroundColor: Theme.of(context).colorScheme.primaryContainer,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(20),
@@ -23,67 +23,72 @@ class ProfilView extends StatelessWidget {
             ),
             title: Text(
               'profil'.tr(),
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.w800,
-                color: Colors.green,
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
             leading: Builder(
               builder: (context) => IconButton(
                 icon: Icon(
                   Icons.person,
-                  color: Colors.green.shade700,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 onPressed: () => Scaffold.of(context).openDrawer(),
               ),
             ),
           ),
           drawer: ortakDrawer(context),
-          backgroundColor: Colors.brown.shade50,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           body: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Profil Resmi
                 Container(
                   width: 120,
                   height: 120,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [Colors.green.shade400, Colors.green.shade600],
+                      colors: [
+                        Theme.of(context).colorScheme.primary,
+                        Theme.of(context).colorScheme.primaryContainer
+                      ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                     ),
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.green.shade300.withOpacity(0.5),
+                        color: Theme.of(context)
+                            .colorScheme
+                            .primary
+                            .withOpacity(0.3),
                         spreadRadius: 2,
                         blurRadius: 10,
                         offset: const Offset(0, 4),
                       ),
                     ],
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.person,
                     size: 60,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onPrimary,
                   ),
                 ),
-
                 const SizedBox(height: 30),
-
-                // Kullanıcı Bilgileri Kartı
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(25),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.surface,
                     borderRadius: BorderRadius.circular(15),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.shade300,
+                        color: Theme.of(context)
+                            .colorScheme
+                            .onSurface
+                            .withOpacity(0.1),
                         spreadRadius: 2,
                         blurRadius: 10,
                         offset: const Offset(0, 5),
@@ -92,36 +97,32 @@ class ProfilView extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      // Kullanıcı Adı
                       Text(
                         'profil_page.kullanici_adi'.tr(),
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Colors.green,
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
-
                       const SizedBox(height: 10),
-
-                      // Email
                       Text(
                         'profil_page.email'.tr(),
                         style: TextStyle(
                           fontSize: 16,
-                          color: Colors.grey.shade600,
+                          color: Theme.of(context)
+                              .colorScheme
+                              .onSurface
+                              .withOpacity(0.6),
                         ),
                       ),
-
                       const SizedBox(height: 20),
-
-                      // Telefon
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
                             Icons.phone,
-                            color: Colors.green.shade600,
+                            color: Theme.of(context).colorScheme.primary,
                             size: 20,
                           ),
                           const SizedBox(width: 10),
@@ -129,25 +130,27 @@ class ProfilView extends StatelessWidget {
                             'profil_page.telefon'.tr(),
                             style: TextStyle(
                               fontSize: 16,
-                              color: Colors.grey.shade600,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onSurface
+                                  .withOpacity(0.6),
                             ),
                           ),
                         ],
                       ),
-
                       const SizedBox(height: 30),
-
-                      // Profil Düzenle Butonu
                       SizedBox(
                         width: double.infinity,
                         height: 50,
                         child: ElevatedButton(
                           onPressed: () {
-                            // Profil düzenleme sayfasına git
+                            // Profil düzenleme (boş)
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.green.shade600,
-                            foregroundColor: Colors.white,
+                            backgroundColor:
+                                Theme.of(context).colorScheme.primary,
+                            foregroundColor:
+                                Theme.of(context).colorScheme.onPrimary,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),

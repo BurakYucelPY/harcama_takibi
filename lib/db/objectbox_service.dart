@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
-import 'harcama.dart';
+import 'objectbox_harcama.dart';
 import '../objectbox.g.dart';
 
 class ObjectBoxService {

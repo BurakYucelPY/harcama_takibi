@@ -14,7 +14,7 @@ class EkleView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.green.shade100,
+        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(20),
@@ -23,24 +23,24 @@ class EkleView extends StatelessWidget {
         ),
         title: Text(
           'ekle'.tr(),
-          style:
-              const TextStyle(fontWeight: FontWeight.w800, color: Colors.green),
+          style: TextStyle(
+              fontWeight: FontWeight.w800,
+              color: Theme.of(context).colorScheme.primary),
         ),
         leading: Builder(
           builder: (context) => IconButton(
             icon: Icon(
               Icons.person,
-              color: Colors.green.shade700,
+              color: Theme.of(context).colorScheme.primary,
             ),
             onPressed: () => Scaffold.of(context).openDrawer(),
           ),
         ),
       ),
       drawer: ortakDrawer(context),
-      backgroundColor: Colors.brown.shade50,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Column(
         children: [
-          // ÜSTTE HARCAMALAR
           Expanded(
             child: model.reversedHarcamalar.isEmpty
                 ? Center(child: Text("ekle_page.henuz_harcama_yok".tr()))
@@ -52,11 +52,14 @@ class EkleView extends StatelessWidget {
                       return Container(
                         margin: const EdgeInsets.only(bottom: 8),
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: Theme.of(context).colorScheme.surface,
                           borderRadius: BorderRadius.circular(12),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.green.shade300.withOpacity(0.5),
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .primary
+                                  .withOpacity(0.2),
                               spreadRadius: 1,
                               blurRadius: 2,
                               offset: const Offset(0, 3),
@@ -74,7 +77,11 @@ class EkleView extends StatelessWidget {
                               padding: const EdgeInsets.all(12),
                               child: Row(
                                 children: [
-                                  Icon(h.ikon, size: 32),
+                                  Icon(h.ikon,
+                                      size: 32,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .primary),
                                   const SizedBox(width: 12),
                                   Expanded(
                                     child: Column(
@@ -82,23 +89,39 @@ class EkleView extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(h.kategori,
-                                            style: const TextStyle(
-                                                fontWeight: FontWeight.bold)),
-                                        Text(h.aciklama),
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .onSurface)),
+                                        Text(h.aciklama,
+                                            style: TextStyle(
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .onSurface
+                                                    .withOpacity(0.7))),
                                         const SizedBox(height: 4),
                                         Text(
                                           DateFormat('d MMMM yyyy', 'tr_TR')
                                               .format(h.tarih),
                                           style: TextStyle(
                                               fontSize: 12,
-                                              color: Colors.grey.shade600),
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .onSurface
+                                                  .withOpacity(0.6)),
                                         ),
                                       ],
                                     ),
                                   ),
                                   Text(
                                     "${h.tutar.toStringAsFixed(2)} ₺",
-                                    style: const TextStyle(fontSize: 17),
+                                    style: TextStyle(
+                                        fontSize: 17,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ],
                               ),
@@ -109,8 +132,6 @@ class EkleView extends StatelessWidget {
                     },
                   ),
           ),
-
-          // ALTA SABİT GİRİŞLER
           Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -121,6 +142,10 @@ class EkleView extends StatelessWidget {
                   decoration: InputDecoration(
                     labelText: "ekle_page.tutar".tr(),
                     border: const OutlineInputBorder(),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Theme.of(context).colorScheme.primary),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -129,6 +154,10 @@ class EkleView extends StatelessWidget {
                   decoration: InputDecoration(
                     labelText: "ekle_page.aciklama".tr(),
                     border: const OutlineInputBorder(),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Theme.of(context).colorScheme.primary),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -139,7 +168,9 @@ class EkleView extends StatelessWidget {
                       value: entry.key,
                       child: Row(
                         children: [
-                          Icon(entry.value, size: 20),
+                          Icon(entry.value,
+                              size: 20,
+                              color: Theme.of(context).colorScheme.primary),
                           const SizedBox(width: 10),
                           Text(entry.key),
                         ],
@@ -152,26 +183,33 @@ class EkleView extends StatelessWidget {
                   decoration: InputDecoration(
                     labelText: "ekle_page.kategori_sec".tr(),
                     border: const OutlineInputBorder(),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          color: Theme.of(context).colorScheme.primary),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 10),
                 ListTile(
                   onTap: () => model.tarihSec(context),
-                  leading: const Icon(Icons.calendar_today),
+                  leading: Icon(Icons.calendar_today,
+                      color: Theme.of(context).colorScheme.primary),
                   title: Text("ekle_page.tarih".tr()),
                   subtitle: Text(
                     DateFormat('d MMMM yyyy', 'tr_TR')
                         .format(model.seciliTarih),
                   ),
-                  trailing: const Icon(Icons.arrow_drop_down),
+                  trailing: Icon(Icons.arrow_drop_down,
+                      color: Theme.of(context).colorScheme.primary),
                 ),
                 const SizedBox(height: 10),
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
-                        foregroundColor: Colors.white,
+                        backgroundColor: Theme.of(context).colorScheme.primary,
+                        foregroundColor:
+                            Theme.of(context).colorScheme.onPrimary,
                         textStyle: const TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold)),
                     onPressed: model.isButtonEnabled ? model.harcamaEkle : null,

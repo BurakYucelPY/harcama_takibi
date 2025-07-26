@@ -14,7 +14,7 @@ class HakkindaView extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            backgroundColor: Colors.green.shade100,
+            backgroundColor: Theme.of(context).colorScheme.primaryContainer,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(20),
@@ -23,28 +23,27 @@ class HakkindaView extends StatelessWidget {
             ),
             title: Text(
               'hakkinda'.tr(),
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.w800,
-                color: Colors.green,
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
             leading: Builder(
               builder: (context) => IconButton(
                 icon: Icon(
                   Icons.person,
-                  color: Colors.green.shade700,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 onPressed: () => Scaffold.of(context).openDrawer(),
               ),
             ),
           ),
           drawer: ortakDrawer(context),
-          backgroundColor: Colors.brown.shade50,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           body: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
-                // Uygulama Bilgi Kartı
                 Card(
                   elevation: 4,
                   shape: RoundedRectangleBorder(
@@ -54,75 +53,70 @@ class HakkindaView extends StatelessWidget {
                     padding: const EdgeInsets.all(20.0),
                     child: Column(
                       children: [
-                        // Uygulama İkonu
                         Container(
                           width: 80,
                           height: 80,
                           decoration: BoxDecoration(
-                            color: Colors.green.shade100,
+                            color:
+                                Theme.of(context).colorScheme.primaryContainer,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Icon(
                             Icons.account_balance_wallet,
                             size: 40,
-                            color: Colors.green.shade700,
+                            color: Theme.of(context).colorScheme.primary,
                           ),
                         ),
                         const SizedBox(height: 16),
-
-                        // Uygulama Adı
                         Text(
                           'hakkinda_page.app_name'.tr(),
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
-                            color: Colors.green,
+                            color: Theme.of(context).colorScheme.primary,
                           ),
                         ),
                         const SizedBox(height: 8),
-
-                        // Sürüm Bilgisi
                         Container(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 12,
                             vertical: 6,
                           ),
                           decoration: BoxDecoration(
-                            color: Colors.green.shade50,
+                            color:
+                                Theme.of(context).colorScheme.primaryContainer,
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(
-                              color: Colors.green.shade200,
+                              color: Theme.of(context).colorScheme.primary,
                               width: 1,
                             ),
                           ),
                           child: Text(
                             'hakkinda_page.version'.tr(),
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 14,
-                              color: Colors.green,
+                              color: Theme.of(context).colorScheme.primary,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),
                         const SizedBox(height: 16),
-
-                        // Açıklama
                         Text(
                           'hakkinda_page.description'.tr(),
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 16,
-                            color: Colors.grey,
+                            color: Theme.of(context)
+                                .colorScheme
+                                .onSurface
+                                .withOpacity(0.7),
                           ),
                         ),
                       ],
                     ),
                   ),
                 ),
-
                 const SizedBox(height: 20),
-
-                // Özellikler Kartı
                 Card(
                   elevation: 4,
                   shape: RoundedRectangleBorder(
@@ -137,16 +131,16 @@ class HakkindaView extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.star,
-                              color: Colors.green.shade700,
+                              color: Theme.of(context).colorScheme.primary,
                               size: 20,
                             ),
                             const SizedBox(width: 8),
                             Text(
                               'hakkinda_page.features'.tr(),
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.green,
+                                color: Theme.of(context).colorScheme.primary,
                               ),
                             ),
                           ],
@@ -155,7 +149,8 @@ class HakkindaView extends StatelessWidget {
                         Row(
                           children: [
                             Icon(Icons.add_circle_outline,
-                                size: 18, color: Colors.green.shade600),
+                                size: 18,
+                                color: Theme.of(context).colorScheme.primary),
                             const SizedBox(width: 12),
                             Expanded(
                               child: Text('hakkinda_page.feature_1'.tr(),
@@ -167,7 +162,8 @@ class HakkindaView extends StatelessWidget {
                         Row(
                           children: [
                             Icon(Icons.category_outlined,
-                                size: 18, color: Colors.green.shade600),
+                                size: 18,
+                                color: Theme.of(context).colorScheme.primary),
                             const SizedBox(width: 12),
                             Expanded(
                               child: Text('hakkinda_page.feature_2'.tr(),
@@ -179,7 +175,8 @@ class HakkindaView extends StatelessWidget {
                         Row(
                           children: [
                             Icon(Icons.analytics_outlined,
-                                size: 18, color: Colors.green.shade600),
+                                size: 18,
+                                color: Theme.of(context).colorScheme.primary),
                             const SizedBox(width: 12),
                             Expanded(
                               child: Text('hakkinda_page.feature_3'.tr(),
@@ -191,7 +188,8 @@ class HakkindaView extends StatelessWidget {
                         Row(
                           children: [
                             Icon(Icons.security_outlined,
-                                size: 18, color: Colors.green.shade600),
+                                size: 18,
+                                color: Theme.of(context).colorScheme.primary),
                             const SizedBox(width: 12),
                             Expanded(
                               child: Text('hakkinda_page.feature_4'.tr(),
@@ -203,10 +201,7 @@ class HakkindaView extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 const SizedBox(height: 20),
-
-                // İstatistikler Kartı
                 Card(
                   elevation: 4,
                   shape: RoundedRectangleBorder(
@@ -220,16 +215,16 @@ class HakkindaView extends StatelessWidget {
                           children: [
                             Icon(
                               Icons.analytics,
-                              color: Colors.green.shade700,
+                              color: Theme.of(context).colorScheme.primary,
                               size: 20,
                             ),
                             const SizedBox(width: 8),
                             Text(
                               'hakkinda_page.app_stats'.tr(),
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.green,
+                                color: Theme.of(context).colorScheme.primary,
                               ),
                             ),
                           ],
@@ -243,29 +238,36 @@ class HakkindaView extends StatelessWidget {
                                 Container(
                                   padding: const EdgeInsets.all(12),
                                   decoration: BoxDecoration(
-                                    color: Colors.green.shade50,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .primaryContainer,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: Icon(
                                     Icons.download_done,
-                                    color: Colors.green.shade700,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                     size: 24,
                                   ),
                                 ),
                                 const SizedBox(height: 8),
                                 Text(
                                   'hakkinda_page.installation'.tr(),
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontSize: 12,
-                                    color: Colors.grey,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSurface
+                                        .withOpacity(0.7),
                                   ),
                                 ),
-                                const Text(
+                                Text(
                                   '1.0.0',
                                   style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.green,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                   ),
                                 ),
                               ],
@@ -275,29 +277,36 @@ class HakkindaView extends StatelessWidget {
                                 Container(
                                   padding: const EdgeInsets.all(12),
                                   decoration: BoxDecoration(
-                                    color: Colors.green.shade50,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .primaryContainer,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: Icon(
                                     Icons.update,
-                                    color: Colors.green.shade700,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                     size: 24,
                                   ),
                                 ),
                                 const SizedBox(height: 8),
                                 Text(
                                   'hakkinda_page.last_update'.tr(),
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontSize: 12,
-                                    color: Colors.grey,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSurface
+                                        .withOpacity(0.7),
                                   ),
                                 ),
-                                const Text(
+                                Text(
                                   '30/06/2025',
                                   style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.green,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                   ),
                                 ),
                               ],
@@ -307,29 +316,36 @@ class HakkindaView extends StatelessWidget {
                                 Container(
                                   padding: const EdgeInsets.all(12),
                                   decoration: BoxDecoration(
-                                    color: Colors.green.shade50,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .primaryContainer,
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: Icon(
                                     Icons.phone_android,
-                                    color: Colors.green.shade700,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                     size: 24,
                                   ),
                                 ),
                                 const SizedBox(height: 8),
                                 Text(
                                   'hakkinda_page.platform'.tr(),
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontSize: 12,
-                                    color: Colors.grey,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSurface
+                                        .withOpacity(0.7),
                                   ),
                                 ),
-                                const Text(
+                                Text(
                                   'Android',
                                   style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.green,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                   ),
                                 ),
                               ],
@@ -340,15 +356,15 @@ class HakkindaView extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 const Spacer(),
-
-                // Alt Bilgi
                 Text(
                   'hakkinda_page.copyright'.tr(),
                   style: TextStyle(
                     fontSize: 12,
-                    color: Colors.grey.shade600,
+                    color: Theme.of(context)
+                        .colorScheme
+                        .onSurface
+                        .withOpacity(0.6),
                   ),
                 ),
               ],

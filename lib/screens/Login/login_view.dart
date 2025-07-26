@@ -11,7 +11,7 @@ class LoginView extends StatelessWidget {
     return Consumer<LoginProvider>(
       builder: (context, provider, child) {
         return Scaffold(
-          backgroundColor: Colors.green.shade50,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -20,15 +20,14 @@ class LoginView extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Logo
                     Container(
                       width: 120,
                       height: 120,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
-                            Colors.green.shade400,
-                            Colors.green.shade600
+                            Theme.of(context).colorScheme.primary,
+                            Theme.of(context).colorScheme.primaryContainer
                           ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
@@ -36,82 +35,87 @@ class LoginView extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.green.shade300.withOpacity(0.5),
+                            color: Theme.of(context)
+                                .colorScheme
+                                .primary
+                                .withOpacity(0.3),
                             spreadRadius: 2,
                             blurRadius: 10,
                             offset: const Offset(0, 4),
                           ),
                         ],
                       ),
-                      child: const Icon(
+                      child: Icon(
                         Icons.account_balance_wallet,
                         size: 60,
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.onPrimary,
                       ),
                     ),
-
                     const SizedBox(height: 30),
-
-                    // Başlık
                     Text(
                       'login.title'.tr(),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
-                        color: Colors.green,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
-
                     const SizedBox(height: 10),
-
                     Text(
                       'login.subtitle'.tr(),
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.grey.shade600,
+                        color: Theme.of(context)
+                            .colorScheme
+                            .onSurface
+                            .withOpacity(0.6),
                       ),
                     ),
-
                     const SizedBox(height: 50),
-
-                    // Email TextField
                     TextField(
                       controller: provider.emailController,
                       decoration: InputDecoration(
                         labelText: 'login.email'.tr(),
-                        prefixIcon: const Icon(Icons.email),
+                        prefixIcon: Icon(Icons.email,
+                            color: Theme.of(context).colorScheme.primary),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                              color: Theme.of(context).colorScheme.primary),
+                        ),
                       ),
                     ),
-
                     const SizedBox(height: 20),
-
-                    // Şifre TextField
                     TextField(
                       controller: provider.passwordController,
                       obscureText: provider.obscurePassword,
                       decoration: InputDecoration(
                         labelText: 'login.password'.tr(),
-                        prefixIcon: const Icon(Icons.lock),
+                        prefixIcon: Icon(Icons.lock,
+                            color: Theme.of(context).colorScheme.primary),
                         suffixIcon: IconButton(
                           icon: Icon(
                             provider.obscurePassword
                                 ? Icons.visibility
                                 : Icons.visibility_off,
+                            color: Theme.of(context).colorScheme.primary,
                           ),
                           onPressed: provider.togglePasswordVisibility,
                         ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                              color: Theme.of(context).colorScheme.primary),
+                        ),
                       ),
                     ),
-
                     const SizedBox(height: 30),
-
-                    // Giriş Butonu
                     SizedBox(
                       width: double.infinity,
                       height: 50,
@@ -120,18 +124,21 @@ class LoginView extends StatelessWidget {
                             ? null
                             : () => provider.login(context),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.green.shade600,
-                          foregroundColor: Colors.white,
+                          backgroundColor:
+                              Theme.of(context).colorScheme.primary,
+                          foregroundColor:
+                              Theme.of(context).colorScheme.onPrimary,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
                         ),
                         child: provider.isLoading
-                            ? const SizedBox(
+                            ? SizedBox(
                                 height: 20,
                                 width: 20,
                                 child: CircularProgressIndicator(
-                                  color: Colors.white,
+                                  color:
+                                      Theme.of(context).colorScheme.onPrimary,
                                   strokeWidth: 2,
                                 ),
                               )
@@ -144,16 +151,13 @@ class LoginView extends StatelessWidget {
                               ),
                       ),
                     ),
-
                     const SizedBox(height: 20),
-
-                    // Kayıt Ol Linki
                     TextButton(
                       onPressed: () => provider.goToRegister(context),
                       child: Text(
                         'login.register_link'.tr(),
                         style: TextStyle(
-                          color: Colors.green.shade600,
+                          color: Theme.of(context).colorScheme.primary,
                           fontSize: 16,
                         ),
                       ),

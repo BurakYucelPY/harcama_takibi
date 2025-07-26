@@ -32,15 +32,14 @@ GoRouter router = GoRouter(
       builder: (context, state, navigationShell) {
         return Scaffold(
           key: ValueKey('shell_${context.locale.languageCode}'),
-          backgroundColor: Colors.brown.shade50,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           body: Container(
             key: ValueKey('body_${context.locale.languageCode}'),
             child: navigationShell,
           ),
-          // ----------------------------------------------------------------
           bottomNavigationBar: Container(
             decoration: BoxDecoration(
-              color: Colors.green.shade100,
+              color: Theme.of(context).colorScheme.primaryContainer,
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(25),
                 topRight: Radius.circular(25),
@@ -56,8 +55,11 @@ GoRouter router = GoRouter(
                     icon: Icon(
                       Icons.home,
                       color: navigationShell.currentIndex == 0
-                          ? Colors.green.shade700
-                          : Colors.grey,
+                          ? Theme.of(context).colorScheme.primary
+                          : Theme.of(context)
+                              .colorScheme
+                              .onSurface
+                              .withOpacity(0.6),
                     ),
                     onPressed: () {
                       drawerKapat(context);
@@ -70,8 +72,11 @@ GoRouter router = GoRouter(
                     icon: Icon(
                       Icons.add,
                       color: navigationShell.currentIndex == 1
-                          ? Colors.green.shade700
-                          : Colors.grey,
+                          ? Theme.of(context).colorScheme.primary
+                          : Theme.of(context)
+                              .colorScheme
+                              .onSurface
+                              .withOpacity(0.6),
                     ),
                     onPressed: () {
                       drawerKapat(context);
@@ -84,8 +89,11 @@ GoRouter router = GoRouter(
                     icon: Icon(
                       Icons.bar_chart,
                       color: navigationShell.currentIndex == 2
-                          ? Colors.green.shade700
-                          : Colors.grey,
+                          ? Theme.of(context).colorScheme.primary
+                          : Theme.of(context)
+                              .colorScheme
+                              .onSurface
+                              .withOpacity(0.6),
                     ),
                     onPressed: () {
                       drawerKapat(context);
@@ -98,8 +106,11 @@ GoRouter router = GoRouter(
                     icon: Icon(
                       Icons.settings,
                       color: navigationShell.currentIndex == 3
-                          ? Colors.green.shade700
-                          : Colors.grey,
+                          ? Theme.of(context).colorScheme.primary
+                          : Theme.of(context)
+                              .colorScheme
+                              .onSurface
+                              .withOpacity(0.6),
                     ),
                     onPressed: () {
                       drawerKapat(context);
@@ -114,7 +125,6 @@ GoRouter router = GoRouter(
           ),
         );
       },
-      //---------------------------------------------------------------------
       branches: branches,
     ),
   ],

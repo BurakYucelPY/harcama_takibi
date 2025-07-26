@@ -3,14 +3,12 @@ import 'package:go_router/go_router.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:harcama_takibi/Route/identify_routes.dart';
 
-// Drawer'ı kapat
 void drawerKapat(BuildContext context) {
   if (Scaffold.maybeOf(context)?.isDrawerOpen == true) {
     Scaffold.of(context).closeDrawer();
   }
 }
 
-// Tüm sayfalar için ortak drawer
 Drawer ortakDrawer(BuildContext context) {
   return Drawer(
     child: ListView(
@@ -23,19 +21,20 @@ Drawer ortakDrawer(BuildContext context) {
           ),
           accountEmail: Text('drawer.kullanici_email'.tr()),
           currentAccountPicture: CircleAvatar(
-            backgroundColor: Colors.brown.shade50,
+            backgroundColor: Theme.of(context).colorScheme.primaryContainer,
             child: Icon(
               Icons.person,
               size: 40,
-              color: Colors.green.shade600,
+              color: Theme.of(context).colorScheme.primary,
             ),
           ),
           decoration: BoxDecoration(
-            color: Colors.green.shade700,
+            color: Theme.of(context).colorScheme.primary,
           ),
         ),
         ListTile(
-          leading: const Icon(Icons.person),
+          leading:
+              Icon(Icons.person, color: Theme.of(context).colorScheme.primary),
           title: Text('profil'.tr()),
           onTap: () {
             Navigator.pop(context);
@@ -44,7 +43,8 @@ Drawer ortakDrawer(BuildContext context) {
         ),
         const Divider(),
         ListTile(
-          leading: const Icon(Icons.info),
+          leading:
+              Icon(Icons.info, color: Theme.of(context).colorScheme.primary),
           title: Text('hakkinda'.tr()),
           onTap: () {
             Navigator.pop(context);
@@ -52,7 +52,8 @@ Drawer ortakDrawer(BuildContext context) {
           },
         ),
         ListTile(
-          leading: const Icon(Icons.exit_to_app),
+          leading: Icon(Icons.exit_to_app,
+              color: Theme.of(context).colorScheme.error),
           title: Text('cikis'.tr()),
           onTap: () {
             Navigator.pop(context);

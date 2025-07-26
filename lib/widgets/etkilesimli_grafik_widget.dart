@@ -176,7 +176,7 @@ class EtkilesimliCubukGrafigi extends StatelessWidget {
               sideTitles: SideTitles(showTitles: false),
             ),
           ),
-          gridData: const FlGridData(show: false),
+          gridData: const FlGridData(show: true),
           borderData: FlBorderData(show: false),
           barGroups: veri.asMap().entries.map((e) {
             final index = e.key;

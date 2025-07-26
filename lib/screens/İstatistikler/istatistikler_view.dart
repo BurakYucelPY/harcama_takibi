@@ -35,7 +35,7 @@ class IstatistiklerView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.green.shade100,
+        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(20),
@@ -44,38 +44,38 @@ class IstatistiklerView extends StatelessWidget {
         ),
         title: Text(
           'istatistikler'.tr(),
-          style:
-              const TextStyle(fontWeight: FontWeight.w800, color: Colors.green),
+          style: TextStyle(
+              fontWeight: FontWeight.w800,
+              color: Theme.of(context).colorScheme.primary),
         ),
         leading: Builder(
           builder: (context) => IconButton(
             icon: Icon(
               Icons.person,
-              color: Colors.green.shade700,
+              color: Theme.of(context).colorScheme.primary,
             ),
             onPressed: () => Scaffold.of(context).openDrawer(),
           ),
         ),
       ),
       drawer: ortakDrawer(context),
-      backgroundColor: Colors.brown.shade50,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Column(
         children: [
-          // Zaman aralığı toggle
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.green.shade50,
+                color: Theme.of(context).colorScheme.primaryContainer,
                 borderRadius: BorderRadius.circular(25),
-                border: Border.all(color: Colors.green.shade200),
+                border:
+                    Border.all(color: Theme.of(context).colorScheme.primary),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: ['Gün', 'Ay', 'Yıl'].map((originalText) {
                   bool isSelected = originalText == zamanAraligi;
 
-                  // Çevrilmiş metni al
                   String displayText = '';
                   if (originalText == 'Gün') {
                     displayText = 'istatistikler_page.gun'.tr();
@@ -93,13 +93,16 @@ class IstatistiklerView extends StatelessWidget {
                       margin: const EdgeInsets.all(4),
                       decoration: BoxDecoration(
                         color: isSelected
-                            ? Colors.green.shade600
+                            ? Theme.of(context).colorScheme.primary
                             : Colors.transparent,
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: isSelected
                             ? [
                                 BoxShadow(
-                                  color: Colors.green.shade300,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .primary
+                                      .withOpacity(0.3),
                                   blurRadius: 4,
                                   offset: const Offset(0, 2),
                                 )
@@ -109,8 +112,9 @@ class IstatistiklerView extends StatelessWidget {
                       child: Text(
                         displayText,
                         style: TextStyle(
-                          color:
-                              isSelected ? Colors.white : Colors.green.shade700,
+                          color: isSelected
+                              ? Theme.of(context).colorScheme.onPrimary
+                              : Theme.of(context).colorScheme.primary,
                           fontWeight:
                               isSelected ? FontWeight.bold : FontWeight.w500,
                           fontSize: 16,
@@ -122,8 +126,6 @@ class IstatistiklerView extends StatelessWidget {
               ),
             ),
           ),
-
-          // Grafik
           Container(
             height: 325,
             margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -137,12 +139,10 @@ class IstatistiklerView extends StatelessWidget {
                     const EdgeInsets.only(top: 0, bottom: 0, left: 0, right: 0),
                 child: Column(
                   children: [
-                    // Grafik ve navigasyon butonları
                     Expanded(
                       child: Stack(
                         alignment: Alignment.center,
                         children: [
-                          // Grafik
                           Center(
                             child: aktifGrafik == 0
                                 ? EtkilesimliPastaGrafigi(
@@ -154,28 +154,24 @@ class IstatistiklerView extends StatelessWidget {
                                     ikonlar: ikonlar,
                                   ),
                           ),
-
-                          // Sol ok butonu
                           Positioned(
                             left: 5,
                             child: IconButton(
                               onPressed: onGrafikDegisti,
                               icon: Icon(
                                 Icons.arrow_back_ios,
-                                color: Colors.green.shade700,
+                                color: Theme.of(context).colorScheme.primary,
                                 size: 30,
                               ),
                             ),
                           ),
-
-                          // Sağ ok butonu
                           Positioned(
                             right: -5,
                             child: IconButton(
                               onPressed: onGrafikDegisti,
                               icon: Icon(
                                 Icons.arrow_forward_ios,
-                                color: Colors.green.shade700,
+                                color: Theme.of(context).colorScheme.primary,
                                 size: 30,
                               ),
                             ),
@@ -188,26 +184,23 @@ class IstatistiklerView extends StatelessWidget {
               ),
             ),
           ),
-
-          // Özet Kartlar
           Expanded(
             child: Container(
               padding: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Başlık
                   Row(
                     children: [
                       Container(
                         padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                          color: Colors.green.shade100,
+                          color: Theme.of(context).colorScheme.primaryContainer,
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Icon(
                           Icons.analytics,
-                          color: Colors.green.shade700,
+                          color: Theme.of(context).colorScheme.primary,
                           size: 20,
                         ),
                       ),
@@ -217,7 +210,7 @@ class IstatistiklerView extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
-                          color: Colors.green.shade700,
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
                       const Spacer(),
@@ -225,9 +218,10 @@ class IstatistiklerView extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 8, vertical: 4),
                         decoration: BoxDecoration(
-                          color: Colors.green.shade50,
+                          color: Theme.of(context).colorScheme.primaryContainer,
                           borderRadius: BorderRadius.circular(12),
-                          border: Border.all(color: Colors.green.shade200),
+                          border: Border.all(
+                              color: Theme.of(context).colorScheme.primary),
                         ),
                         child: Text(
                           zamanAraligi == 'Gün'
@@ -237,7 +231,7 @@ class IstatistiklerView extends StatelessWidget {
                                   : 'istatistikler_page.yil'.tr(),
                           style: TextStyle(
                             fontSize: 12,
-                            color: Colors.green.shade600,
+                            color: Theme.of(context).colorScheme.primary,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -245,8 +239,6 @@ class IstatistiklerView extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 15),
-
-                  // Üst sıra - Toplam harcama ve kategori sayısı
                   Row(
                     children: [
                       Expanded(
@@ -254,7 +246,7 @@ class IstatistiklerView extends StatelessWidget {
                           "istatistikler_page.toplam_harcama".tr(),
                           "$toplamHarcama ₺",
                           Icons.account_balance_wallet,
-                          Colors.blue.shade600,
+                          Theme.of(context).colorScheme.primary,
                         ),
                       ),
                       const SizedBox(width: 12),
@@ -263,15 +255,12 @@ class IstatistiklerView extends StatelessWidget {
                           "istatistikler_page.kategori_sayisi".tr(),
                           "$kategoriSayisi",
                           Icons.category,
-                          Colors.orange.shade600,
+                          Theme.of(context).colorScheme.secondary,
                         ),
                       ),
                     ],
                   ),
-
                   const SizedBox(height: 12),
-
-                  // Alt sıra - En çok harcanan kategori
                   if (enCokHarcananKategoriData['kategori'].isNotEmpty) ...[
                     OrtakWidgets.buildBuyukOzetKart(
                       enCokHarcananKategoriData,
@@ -290,15 +279,22 @@ class IstatistiklerView extends StatelessWidget {
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              const Icon(Icons.info_outline,
-                                  size: 40, color: Colors.grey),
+                              Icon(Icons.info_outline,
+                                  size: 40,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSurface
+                                      .withOpacity(0.4)),
                               const SizedBox(height: 8),
                               Text(
                                 'istatistikler_page.secilen_donemde_harcama_yok'
                                     .tr(),
                                 style: TextStyle(
                                   fontSize: 16,
-                                  color: Colors.grey.shade600,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSurface
+                                      .withOpacity(0.6),
                                 ),
                               ),
                             ],

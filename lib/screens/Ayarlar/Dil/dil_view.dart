@@ -15,7 +15,7 @@ class DilView extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            backgroundColor: Colors.green.shade100,
+            backgroundColor: Theme.of(context).colorScheme.primaryContainer,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(20),
@@ -24,40 +24,45 @@ class DilView extends StatelessWidget {
             ),
             title: Text(
               'dil'.tr(),
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.w800,
-                color: Colors.green,
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
             leading: Builder(
               builder: (context) => IconButton(
                 icon: Icon(
                   Icons.person,
-                  color: Colors.green.shade700,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 onPressed: () => Scaffold.of(context).openDrawer(),
               ),
             ),
           ),
           drawer: ortakDrawer(context),
-          backgroundColor: Colors.brown.shade50,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           body: Column(
             children: [
-              // Üst başlık
               Container(
                 width: double.infinity,
                 margin: const EdgeInsets.all(16),
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Colors.green.shade400, Colors.green.shade600],
+                    colors: [
+                      Theme.of(context).colorScheme.primary,
+                      Theme.of(context).colorScheme.primaryContainer
+                    ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.green.shade300.withOpacity(0.5),
+                      color: Theme.of(context)
+                          .colorScheme
+                          .primary
+                          .withOpacity(0.3),
                       spreadRadius: 2,
                       blurRadius: 8,
                       offset: const Offset(0, 4),
@@ -66,21 +71,21 @@ class DilView extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    const Icon(Icons.language, color: Colors.white, size: 32),
+                    Icon(Icons.language,
+                        color: Theme.of(context).colorScheme.onPrimary,
+                        size: 32),
                     const SizedBox(height: 8),
                     Text(
                       'dil_page.language_selection'.tr(),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.onPrimary,
                       ),
                     ),
                   ],
                 ),
               ),
-
-              // Dil listesi
               Expanded(
                 child: ListView(
                   padding: const EdgeInsets.symmetric(horizontal: 16),

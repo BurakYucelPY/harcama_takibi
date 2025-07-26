@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../../fonks.dart';
-import 'package:harcama_takibi/db/harcama.dart';
+import 'package:harcama_takibi/db/objectbox_harcama.dart';
 
 class AnasayfaView extends StatelessWidget {
   final double bugunkunToplam;
@@ -30,7 +30,7 @@ class AnasayfaView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.green.shade100,
+        backgroundColor: Theme.of(context).colorScheme.primaryContainer,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(20),
@@ -39,41 +39,47 @@ class AnasayfaView extends StatelessWidget {
         ),
         title: Text(
           'anasayfa'.tr(),
-          style:
-              const TextStyle(fontWeight: FontWeight.w800, color: Colors.green),
+          style: TextStyle(
+              fontWeight: FontWeight.w800,
+              color: Theme.of(context).colorScheme.primary),
         ),
         leading: Builder(
           builder: (context) => IconButton(
             icon: Icon(
               Icons.person,
-              color: Colors.green.shade700,
+              color: Theme.of(context).colorScheme.primary,
             ),
             onPressed: () => Scaffold.of(context).openDrawer(),
           ),
         ),
       ),
       drawer: ortakDrawer(context),
-      backgroundColor: Colors.brown.shade50,
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Hoşgeldin mesajı - DIREKT
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Colors.green.shade400, Colors.green.shade600],
+                    colors: [
+                      Theme.of(context).colorScheme.primary,
+                      Theme.of(context).colorScheme.primaryContainer
+                    ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.green.shade300.withOpacity(0.5),
+                      color: Theme.of(context)
+                          .colorScheme
+                          .primary
+                          .withOpacity(0.3),
                       spreadRadius: 2,
                       blurRadius: 8,
                       offset: const Offset(0, 4),
@@ -84,7 +90,6 @@ class AnasayfaView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      // DÜZELTME: Değişken yerine direkt .tr() kullan
                       DateTime.now().hour >= 6 && DateTime.now().hour < 12
                           ? "anasayfa_page.gunaydin".tr()
                           : DateTime.now().hour >= 12 &&
@@ -94,10 +99,10 @@ class AnasayfaView extends StatelessWidget {
                                       DateTime.now().hour < 22
                                   ? "anasayfa_page.iyi_aksamlar".tr()
                                   : "anasayfa_page.iyi_geceler".tr(),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.onPrimary,
                       ),
                     ),
                     const SizedBox(height: 4),
@@ -105,19 +110,18 @@ class AnasayfaView extends StatelessWidget {
                       DateFormat('d MMMM yyyy', 'tr_TR').format(DateTime.now()),
                       style: TextStyle(
                         fontSize: 12,
-                        color: Colors.white.withOpacity(0.9),
+                        color: Theme.of(context)
+                            .colorScheme
+                            .onPrimary
+                            .withOpacity(0.9),
                       ),
                     ),
                   ],
                 ),
               ),
-
               const SizedBox(height: 10),
-
-              // Hızlı özet kartları - DIREKT
               Column(
                 children: [
-                  // Üst sıra
                   Row(
                     children: [
                       Expanded(
@@ -134,7 +138,10 @@ class AnasayfaView extends StatelessWidget {
                                 Row(
                                   children: [
                                     Icon(Icons.today,
-                                        color: Colors.blue.shade600, size: 24),
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary,
+                                        size: 24),
                                     const SizedBox(width: 8),
                                     Expanded(
                                       child: Text(
@@ -142,7 +149,10 @@ class AnasayfaView extends StatelessWidget {
                                         style: TextStyle(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w600,
-                                          color: Colors.grey.shade700,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onSurface
+                                              .withOpacity(0.7),
                                         ),
                                       ),
                                     ),
@@ -154,7 +164,8 @@ class AnasayfaView extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.grey.shade800,
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
                                   ),
                                 ),
                                 const SizedBox(height: 4),
@@ -162,7 +173,10 @@ class AnasayfaView extends StatelessWidget {
                                   "$bugunkunHarcamaSayisi ${'anasayfa_page.harcama'.tr()}",
                                   style: TextStyle(
                                     fontSize: 12,
-                                    color: Colors.grey.shade600,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSurface
+                                        .withOpacity(0.6),
                                   ),
                                 ),
                               ],
@@ -185,7 +199,9 @@ class AnasayfaView extends StatelessWidget {
                                 Row(
                                   children: [
                                     Icon(Icons.calendar_month,
-                                        color: Colors.orange.shade600,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
                                         size: 24),
                                     const SizedBox(width: 8),
                                     Expanded(
@@ -194,7 +210,10 @@ class AnasayfaView extends StatelessWidget {
                                         style: TextStyle(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w600,
-                                          color: Colors.grey.shade700,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onSurface
+                                              .withOpacity(0.7),
                                         ),
                                       ),
                                     ),
@@ -206,7 +225,8 @@ class AnasayfaView extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.grey.shade800,
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
                                   ),
                                 ),
                                 const SizedBox(height: 4),
@@ -214,7 +234,10 @@ class AnasayfaView extends StatelessWidget {
                                   "anasayfa_page.toplam_harcama".tr(),
                                   style: TextStyle(
                                     fontSize: 12,
-                                    color: Colors.grey.shade600,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSurface
+                                        .withOpacity(0.6),
                                   ),
                                 ),
                               ],
@@ -224,10 +247,7 @@ class AnasayfaView extends StatelessWidget {
                       ),
                     ],
                   ),
-
                   const SizedBox(height: 12),
-
-                  // Alt sıra
                   Row(
                     children: [
                       Expanded(
@@ -244,7 +264,9 @@ class AnasayfaView extends StatelessWidget {
                                 Row(
                                   children: [
                                     Icon(Icons.receipt_long,
-                                        color: Colors.purple.shade600,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .tertiary,
                                         size: 24),
                                     const SizedBox(width: 8),
                                     Expanded(
@@ -253,7 +275,10 @@ class AnasayfaView extends StatelessWidget {
                                         style: TextStyle(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w600,
-                                          color: Colors.grey.shade700,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onSurface
+                                              .withOpacity(0.7),
                                         ),
                                       ),
                                     ),
@@ -265,7 +290,8 @@ class AnasayfaView extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.grey.shade800,
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
                                   ),
                                 ),
                                 const SizedBox(height: 4),
@@ -273,7 +299,10 @@ class AnasayfaView extends StatelessWidget {
                                   "anasayfa_page.harcama_kaydi".tr(),
                                   style: TextStyle(
                                     fontSize: 12,
-                                    color: Colors.grey.shade600,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSurface
+                                        .withOpacity(0.6),
                                   ),
                                 ),
                               ],
@@ -296,7 +325,10 @@ class AnasayfaView extends StatelessWidget {
                                 Row(
                                   children: [
                                     Icon(enCokKategoriBelirteci,
-                                        color: Colors.green.shade600, size: 24),
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary,
+                                        size: 24),
                                     const SizedBox(width: 8),
                                     Expanded(
                                       child: Text(
@@ -304,7 +336,10 @@ class AnasayfaView extends StatelessWidget {
                                         style: TextStyle(
                                           fontSize: 14,
                                           fontWeight: FontWeight.w600,
-                                          color: Colors.grey.shade700,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .onSurface
+                                              .withOpacity(0.7),
                                         ),
                                       ),
                                     ),
@@ -318,7 +353,8 @@ class AnasayfaView extends StatelessWidget {
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.grey.shade800,
+                                    color:
+                                        Theme.of(context).colorScheme.onSurface,
                                   ),
                                 ),
                                 const SizedBox(height: 4),
@@ -326,7 +362,10 @@ class AnasayfaView extends StatelessWidget {
                                   "anasayfa_page.kullanilan_kategori".tr(),
                                   style: TextStyle(
                                     fontSize: 12,
-                                    color: Colors.grey.shade600,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSurface
+                                        .withOpacity(0.6),
                                   ),
                                 ),
                               ],
@@ -338,15 +377,12 @@ class AnasayfaView extends StatelessWidget {
                   ),
                 ],
               ),
-
               const SizedBox(height: 10),
-
-              // Son harcamalar başlığı - DIREKT
               Row(
                 children: [
                   Icon(
                     Icons.history,
-                    color: Colors.green.shade700,
+                    color: Theme.of(context).colorScheme.primary,
                     size: 24,
                   ),
                   const SizedBox(width: 8),
@@ -355,15 +391,12 @@ class AnasayfaView extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Colors.green.shade700,
+                      color: Theme.of(context).colorScheme.primary,
                     ),
                   ),
                 ],
               ),
-
               const SizedBox(height: 10),
-
-              // Son harcamalar listesi - DIREKT
               sonHarcamalar.isEmpty
                   ? Card(
                       elevation: 2,
@@ -378,14 +411,20 @@ class AnasayfaView extends StatelessWidget {
                             Icon(
                               Icons.receipt_long_outlined,
                               size: 48,
-                              color: Colors.grey.shade400,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onSurface
+                                  .withOpacity(0.4),
                             ),
                             const SizedBox(height: 16),
                             Text(
                               'anasayfa_page.henuz_harcama_yok'.tr(),
                               style: TextStyle(
                                 fontSize: 16,
-                                color: Colors.grey.shade600,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .onSurface
+                                    .withOpacity(0.6),
                               ),
                               textAlign: TextAlign.center,
                             ),
@@ -394,7 +433,10 @@ class AnasayfaView extends StatelessWidget {
                               'anasayfa_page.ilk_harcama_ekle'.tr(),
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.grey.shade500,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .onSurface
+                                    .withOpacity(0.5),
                               ),
                               textAlign: TextAlign.center,
                             ),
@@ -415,18 +457,22 @@ class AnasayfaView extends StatelessWidget {
                               contentPadding: const EdgeInsets.symmetric(
                                   horizontal: 16, vertical: 8),
                               leading: CircleAvatar(
-                                backgroundColor: Colors.green.shade50,
+                                backgroundColor: Theme.of(context)
+                                    .colorScheme
+                                    .primaryContainer,
                                 child: Icon(
                                   harcama.ikon,
-                                  color: Colors.green.shade600,
+                                  color: Theme.of(context).colorScheme.primary,
                                   size: 20,
                                 ),
                               ),
                               title: Text(
                                 harcama.kategori,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 16,
+                                  color:
+                                      Theme.of(context).colorScheme.onSurface,
                                 ),
                               ),
                               subtitle: Column(
@@ -435,7 +481,10 @@ class AnasayfaView extends StatelessWidget {
                                   Text(
                                     harcama.aciklama,
                                     style: TextStyle(
-                                      color: Colors.grey.shade700,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSurface
+                                          .withOpacity(0.7),
                                       fontSize: 14,
                                     ),
                                   ),
@@ -444,7 +493,10 @@ class AnasayfaView extends StatelessWidget {
                                     DateFormat('d MMM yyyy', 'tr_TR')
                                         .format(harcama.tarih),
                                     style: TextStyle(
-                                      color: Colors.grey.shade600,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .onSurface
+                                          .withOpacity(0.6),
                                       fontSize: 12,
                                     ),
                                   ),
@@ -455,7 +507,7 @@ class AnasayfaView extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.green.shade700,
+                                  color: Theme.of(context).colorScheme.primary,
                                 ),
                               ),
                             ),

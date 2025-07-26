@@ -14,7 +14,7 @@ class AyarlarView extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             centerTitle: true,
-            backgroundColor: Colors.green.shade100,
+            backgroundColor: Theme.of(context).colorScheme.primaryContainer,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(20),
@@ -23,63 +23,61 @@ class AyarlarView extends StatelessWidget {
             ),
             title: Text(
               'ayarlar'.tr(),
-              style: const TextStyle(
+              style: TextStyle(
                 fontWeight: FontWeight.w800,
-                color: Colors.green,
+                color: Theme.of(context).colorScheme.primary,
               ),
             ),
             leading: Builder(
               builder: (context) => IconButton(
                 icon: Icon(
                   Icons.person,
-                  color: Colors.green.shade700,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
                 onPressed: () => Scaffold.of(context).openDrawer(),
               ),
             ),
           ),
           drawer: ortakDrawer(context),
-          backgroundColor: Colors.brown.shade50,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           body: Padding(
             padding: const EdgeInsets.all(10),
             child: ListView(
               children: [
-                // Tema
                 ListTile(
-                  leading: const Icon(Icons.palette, color: Colors.purple),
+                  leading: Icon(Icons.palette,
+                      color: Theme.of(context).colorScheme.tertiary),
                   title: Text('ayarlar_page.tema'.tr()),
                   subtitle: Text('ayarlar_page.tema_subtitle'.tr()),
                   trailing: Switch(
                     value: provider.isDarkMode,
                     onChanged: (value) => provider.toggleTheme(),
-                    activeColor: Colors.green,
+                    activeColor: Theme.of(context).colorScheme.primary,
                   ),
                   onTap: () => provider.toggleTheme(),
                 ),
                 const Divider(),
-
                 ListTile(
-                  leading: const Icon(Icons.person, color: Colors.black),
+                  leading: Icon(Icons.person,
+                      color: Theme.of(context).colorScheme.onSurface),
                   title: Text('profil'.tr()),
                   subtitle: Text('ayarlar_page.profil_subtitle'.tr()),
                   trailing: const Icon(Icons.arrow_forward_ios),
                   onTap: () => provider.goToProfil(context),
                 ),
                 const Divider(),
-
-                // Dil
                 ListTile(
-                  leading: const Icon(Icons.language, color: Colors.blue),
+                  leading: Icon(Icons.language,
+                      color: Theme.of(context).colorScheme.primary),
                   title: Text('dil'.tr()),
                   subtitle: Text('ayarlar_page.dil_subtitle'.tr()),
                   trailing: const Icon(Icons.arrow_forward_ios),
                   onTap: () => provider.goToDil(context),
                 ),
                 const Divider(),
-
-                // Verileri Sıfırla
                 ListTile(
-                  leading: const Icon(Icons.delete_forever, color: Colors.red),
+                  leading: Icon(Icons.delete_forever,
+                      color: Theme.of(context).colorScheme.error),
                   title: Text('ayarlar_page.verileri_sifirla'.tr()),
                   subtitle: Text('ayarlar_page.verileri_sifirla_subtitle'.tr()),
                   trailing: const Icon(Icons.arrow_forward_ios),

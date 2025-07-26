@@ -11,7 +11,7 @@ class RegisterView extends StatelessWidget {
     return Consumer<RegisterProvider>(
       builder: (context, provider, child) {
         return Scaffold(
-          backgroundColor: Colors.green.shade50,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -20,15 +20,14 @@ class RegisterView extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Logo
                     Container(
                       width: 120,
                       height: 120,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
-                            Colors.green.shade400,
-                            Colors.green.shade600
+                            Theme.of(context).colorScheme.primary,
+                            Theme.of(context).colorScheme.primaryContainer
                           ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
@@ -36,55 +35,60 @@ class RegisterView extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.green.shade300.withOpacity(0.5),
+                            color: Theme.of(context)
+                                .colorScheme
+                                .primary
+                                .withOpacity(0.3),
                             spreadRadius: 2,
                             blurRadius: 10,
                             offset: const Offset(0, 4),
                           ),
                         ],
                       ),
-                      child: const Icon(
+                      child: Icon(
                         Icons.person_add,
                         size: 60,
-                        color: Colors.white,
+                        color: Theme.of(context).colorScheme.onPrimary,
                       ),
                     ),
-
                     const SizedBox(height: 30),
-
-                    // Başlık
                     Text(
                       'register.title'.tr(),
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
-                        color: Colors.green,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
-
                     const SizedBox(height: 10),
-
                     Text(
                       'register.subtitle'.tr(),
                       style: TextStyle(
                         fontSize: 16,
-                        color: Colors.grey.shade600,
+                        color: Theme.of(context)
+                            .colorScheme
+                            .onSurface
+                            .withOpacity(0.6),
                       ),
                     ),
-
                     const SizedBox(height: 40),
-
                     Form(
                       key: provider.formKey,
                       child: Column(
                         children: [
-                          // Ad Soyad TextField
                           TextFormField(
                             decoration: InputDecoration(
                               labelText: 'register.fullname'.tr(),
-                              prefixIcon: const Icon(Icons.person),
+                              prefixIcon: Icon(Icons.person,
+                                  color: Theme.of(context).colorScheme.primary),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                    color:
+                                        Theme.of(context).colorScheme.primary),
                               ),
                             ),
                             validator: (value) {
@@ -94,17 +98,21 @@ class RegisterView extends StatelessWidget {
                               return null;
                             },
                           ),
-
                           const SizedBox(height: 20),
-
-                          // Email TextField
                           TextFormField(
                             keyboardType: TextInputType.emailAddress,
                             decoration: InputDecoration(
                               labelText: 'register.email'.tr(),
-                              prefixIcon: const Icon(Icons.email),
+                              prefixIcon: Icon(Icons.email,
+                                  color: Theme.of(context).colorScheme.primary),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                    color:
+                                        Theme.of(context).colorScheme.primary),
                               ),
                             ),
                             validator: (value) {
@@ -118,25 +126,30 @@ class RegisterView extends StatelessWidget {
                               return null;
                             },
                           ),
-
                           const SizedBox(height: 20),
-
-                          // Şifre TextField
                           TextFormField(
                             obscureText: provider.obscurePassword,
                             decoration: InputDecoration(
                               labelText: 'register.password'.tr(),
-                              prefixIcon: const Icon(Icons.lock),
+                              prefixIcon: Icon(Icons.lock,
+                                  color: Theme.of(context).colorScheme.primary),
                               suffixIcon: IconButton(
                                 icon: Icon(
                                   provider.obscurePassword
                                       ? Icons.visibility
                                       : Icons.visibility_off,
+                                  color: Theme.of(context).colorScheme.primary,
                                 ),
                                 onPressed: provider.togglePasswordVisibility,
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                    color:
+                                        Theme.of(context).colorScheme.primary),
                               ),
                             ),
                             validator: (value) {
@@ -149,26 +162,31 @@ class RegisterView extends StatelessWidget {
                               return null;
                             },
                           ),
-
                           const SizedBox(height: 20),
-
-                          // Şifre Tekrar TextField
                           TextFormField(
                             obscureText: provider.obscureConfirmPassword,
                             decoration: InputDecoration(
                               labelText: 'register.confirm_password'.tr(),
-                              prefixIcon: const Icon(Icons.lock_outline),
+                              prefixIcon: Icon(Icons.lock_outline,
+                                  color: Theme.of(context).colorScheme.primary),
                               suffixIcon: IconButton(
                                 icon: Icon(
                                   provider.obscureConfirmPassword
                                       ? Icons.visibility
                                       : Icons.visibility_off,
+                                  color: Theme.of(context).colorScheme.primary,
                                 ),
                                 onPressed:
                                     provider.toggleConfirmPasswordVisibility,
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                    color:
+                                        Theme.of(context).colorScheme.primary),
                               ),
                             ),
                             validator: (value) {
@@ -179,18 +197,17 @@ class RegisterView extends StatelessWidget {
                               return null;
                             },
                           ),
-
                           const SizedBox(height: 30),
-
-                          // Kayıt Ol Butonu
                           SizedBox(
                             width: double.infinity,
                             height: 50,
                             child: ElevatedButton(
                               onPressed: () => provider.register(context),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.green.shade600,
-                                foregroundColor: Colors.white,
+                                backgroundColor:
+                                    Theme.of(context).colorScheme.primary,
+                                foregroundColor:
+                                    Theme.of(context).colorScheme.onPrimary,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
@@ -204,10 +221,7 @@ class RegisterView extends StatelessWidget {
                               ),
                             ),
                           ),
-
                           const SizedBox(height: 20),
-
-                          // Giriş Yap Linki
                           TextButton(
                             onPressed: () {
                               Navigator.pop(context);
@@ -215,7 +229,7 @@ class RegisterView extends StatelessWidget {
                             child: Text(
                               'register.login_link'.tr(),
                               style: TextStyle(
-                                color: Colors.green.shade600,
+                                color: Theme.of(context).colorScheme.primary,
                                 fontSize: 16,
                               ),
                             ),

@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../Ekle/ekle.dart';
 import 'anasayfa_view.dart';
-import 'package:harcama_takibi/db/harcama.dart';
+import 'package:harcama_takibi/db/objectbox_harcama.dart';
 
 class AnasayfaProvider extends ChangeNotifier {
   // Hesaplama metodları
