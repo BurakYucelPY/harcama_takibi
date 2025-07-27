@@ -40,7 +40,7 @@ class DilView extends StatelessWidget {
             ),
           ),
           drawer: ortakDrawer(context),
-          backgroundColor: Theme.of(context).colorScheme.surface,
+          backgroundColor: Theme.of(context).colorScheme.tertiary,
           body: Column(
             children: [
               Container(

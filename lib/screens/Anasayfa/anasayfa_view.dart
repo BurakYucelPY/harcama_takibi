@@ -54,7 +54,7 @@ class AnasayfaView extends StatelessWidget {
         ),
       ),
       drawer: ortakDrawer(context),
-      backgroundColor: Theme.of(context).colorScheme.surface,
+      backgroundColor: Theme.of(context).colorScheme.tertiary,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),

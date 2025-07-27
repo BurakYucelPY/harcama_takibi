@@ -32,7 +32,7 @@ GoRouter router = GoRouter(
       builder: (context, state, navigationShell) {
         return Scaffold(
           key: ValueKey('shell_${context.locale.languageCode}'),
-          backgroundColor: Theme.of(context).colorScheme.surface,
+          backgroundColor: Theme.of(context).colorScheme.tertiary,
           body: Container(
             key: ValueKey('body_${context.locale.languageCode}'),
             child: navigationShell,

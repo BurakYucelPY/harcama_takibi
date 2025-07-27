@@ -19,6 +19,7 @@ class AyarlarProvider extends ChangeNotifier {
       blendLevel: 7,
       visualDensity: FlexColorScheme.comfortablePlatformDensity,
       useMaterial3: true,
+      tertiary: const Color(0xFFE8F5E8),
     ).toTheme;
   }
 
@@ -29,6 +30,7 @@ class AyarlarProvider extends ChangeNotifier {
       blendLevel: 13,
       visualDensity: FlexColorScheme.comfortablePlatformDensity,
       useMaterial3: true,
+      tertiary: const Color(0xFF1A2E1A),
     ).toTheme;
   }
 

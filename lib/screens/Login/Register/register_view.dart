@@ -11,7 +11,7 @@ class RegisterView extends StatelessWidget {
     return Consumer<RegisterProvider>(
       builder: (context, provider, child) {
         return Scaffold(
-          backgroundColor: Theme.of(context).colorScheme.surface,
+          backgroundColor: Theme.of(context).colorScheme.tertiary,
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(20.0),

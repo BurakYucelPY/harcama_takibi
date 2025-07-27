@@ -39,7 +39,7 @@ class AyarlarView extends StatelessWidget {
             ),
           ),
           drawer: ortakDrawer(context),
-          backgroundColor: Theme.of(context).colorScheme.surface,
+          backgroundColor: Theme.of(context).colorScheme.tertiary,
           body: Padding(
             padding: const EdgeInsets.all(10),
             child: ListView(
