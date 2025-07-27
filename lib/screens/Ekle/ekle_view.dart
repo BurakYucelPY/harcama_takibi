@@ -66,67 +66,115 @@ class EkleView extends StatelessWidget {
                             ),
                           ],
                         ),
-                        child: Material(
-                          color: Colors.transparent,
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(12),
-                            onTap: () {
-                              // Gelecekte bir işlev eklenebilir
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.all(12),
-                              child: Row(
-                                children: [
-                                  Icon(h.ikon,
-                                      size: 32,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .primary),
-                                  const SizedBox(width: 12),
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(h.kategori,
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .onSurface)),
-                                        Text(h.aciklama,
-                                            style: TextStyle(
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .onSurface
-                                                    .withOpacity(0.7))),
-                                        const SizedBox(height: 4),
-                                        Text(
-                                          DateFormat('d MMMM yyyy', 'tr_TR')
-                                              .format(h.tarih),
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .onSurface
-                                                  .withOpacity(0.6)),
+                        child: Stack(
+                          children: [
+                            Material(
+                              color: Colors.transparent,
+                              child: InkWell(
+                                borderRadius: BorderRadius.circular(12),
+                                onTap: () {
+                                  // Gelecekte bir işlev eklenebilir
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(12),
+                                  child: Row(
+                                    children: [
+                                      Icon(h.ikon,
+                                          size: 32,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .primary),
+                                      const SizedBox(width: 12),
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(h.kategori,
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Theme.of(context)
+                                                        .colorScheme
+                                                        .onSurface)),
+                                            Text(h.aciklama,
+                                                style: TextStyle(
+                                                    color: Theme.of(context)
+                                                        .colorScheme
+                                                        .onSurface
+                                                        .withOpacity(0.7))),
+                                            const SizedBox(height: 4),
+                                            Text(
+                                              DateFormat('d MMMM yyyy', 'tr_TR')
+                                                  .format(h.tarih),
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .onSurface
+                                                      .withOpacity(0.6)),
+                                            ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          const SizedBox(
+                                              height: 35), // Daha fazla boşluk
+                                          Text(
+                                            "${h.tutar.toStringAsFixed(2)} ₺",
+                                            style: TextStyle(
+                                                fontSize: 17,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .primary,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
                                   ),
-                                  Text(
-                                    "${h.tutar.toStringAsFixed(2)} ₺",
-                                    style: TextStyle(
-                                        fontSize: 17,
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .primary,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
+                                ),
                               ),
                             ),
-                          ),
+                            // Silme tuşu - sağ üst köşe
+                            Positioned(
+                              top: 8,
+                              right: 8,
+                              child: Material(
+                                color: Colors.transparent,
+                                child: InkWell(
+                                  borderRadius: BorderRadius.circular(15),
+                                  onTap: () => model.harcamaSilFonk(
+                                      context, h.id, h.kategori),
+                                  child: Container(
+                                    padding: const EdgeInsets.all(6),
+                                    decoration: BoxDecoration(
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .error
+                                          .withOpacity(0.1),
+                                      borderRadius: BorderRadius.circular(15),
+                                      border: Border.all(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .error
+                                            .withOpacity(0.3),
+                                        width: 1,
+                                      ),
+                                    ),
+                                    child: Icon(
+                                      Icons.delete_outline,
+                                      size: 18,
+                                      color:
+                                          Theme.of(context).colorScheme.error,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       );
                     },

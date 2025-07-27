@@ -108,10 +108,53 @@ class EkleModel extends ChangeNotifier {
     }
   }
 
-  /// Harcama sil
+  // Harcama sil
   void harcamaSil(int id) {
     ObjectBoxService.instance.harcamaSil(id);
     _harcamalariYukle();
+  }
+
+  void harcamaSilFonk(BuildContext context, int id, String kategori) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Harcamayı Sil !'),
+          backgroundColor: Theme.of(context).colorScheme.tertiary,
+          titleTextStyle: TextStyle(
+              color: Theme.of(context).colorScheme.primary, fontSize: 20),
+          content: const Text('Bu harcamayı silmeye emin misiniz?'),
+          contentTextStyle: TextStyle(
+              fontSize: 16, color: Theme.of(context).colorScheme.onSurface),
+          actions: [
+            TextButton(
+              style: TextButton.styleFrom(
+                  foregroundColor: Theme.of(context).colorScheme.onSurface),
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('İptal'),
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                  foregroundColor: Theme.of(context).colorScheme.error),
+              onPressed: () {
+                Navigator.of(context).pop();
+
+                ObjectBoxService.instance.harcamaSil(id);
+                _harcamalariYukle();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: const Text('Harcama silindi'),
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    duration: const Duration(seconds: 2),
+                  ),
+                );
+              },
+              child: const Text('Sil'),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   /// Tüm harcamaları sil
