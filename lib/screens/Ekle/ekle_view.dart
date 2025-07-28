@@ -72,9 +72,7 @@ class EkleView extends StatelessWidget {
                               color: Colors.transparent,
                               child: InkWell(
                                 borderRadius: BorderRadius.circular(12),
-                                onTap: () {
-                                  // Gelecekte bir işlev eklenebilir
-                                },
+                                onTap: () {},
                                 child: Padding(
                                   padding: const EdgeInsets.all(12),
                                   child: Row(
@@ -166,7 +164,7 @@ class EkleView extends StatelessWidget {
                                     ),
                                     child: Icon(
                                       Icons.delete_outline,
-                                      size: 18,
+                                      size: 12,
                                       color:
                                           Theme.of(context).colorScheme.error,
                                     ),

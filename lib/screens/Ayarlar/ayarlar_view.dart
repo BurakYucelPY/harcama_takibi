@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:harcama_takibi/Route/identify_routes.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../../fonks.dart';
@@ -46,15 +48,15 @@ class AyarlarView extends StatelessWidget {
               children: [
                 ListTile(
                   leading: Icon(Icons.palette,
-                      color: Theme.of(context).colorScheme.tertiary),
+                      color: Theme.of(context).colorScheme.secondary),
                   title: Text('ayarlar_page.tema'.tr()),
                   subtitle: Text('ayarlar_page.tema_subtitle'.tr()),
                   trailing: Switch(
                     value: provider.isDarkMode,
-                    onChanged: (value) => provider.toggleTheme(),
+                    onChanged: (value) => provider.toggleTemaTus(),
                     activeColor: Theme.of(context).colorScheme.primary,
                   ),
-                  onTap: () => provider.toggleTheme(),
+                  onTap: () => provider.toggleTemaTus(),
                 ),
                 const Divider(),
                 ListTile(
@@ -63,7 +65,7 @@ class AyarlarView extends StatelessWidget {
                   title: Text('profil'.tr()),
                   subtitle: Text('ayarlar_page.profil_subtitle'.tr()),
                   trailing: const Icon(Icons.arrow_forward_ios),
-                  onTap: () => provider.goToProfil(context),
+                  onTap: () => context.goNamed(Rotalar.profilName),
                 ),
                 const Divider(),
                 ListTile(
@@ -72,7 +74,7 @@ class AyarlarView extends StatelessWidget {
                   title: Text('dil'.tr()),
                   subtitle: Text('ayarlar_page.dil_subtitle'.tr()),
                   trailing: const Icon(Icons.arrow_forward_ios),
-                  onTap: () => provider.goToDil(context),
+                  onTap: () => context.goNamed(Rotalar.dilName),
                 ),
                 const Divider(),
                 ListTile(

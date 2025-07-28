@@ -265,6 +265,7 @@ class IstatistiklerView extends StatelessWidget {
                     OrtakWidgets.buildBuyukOzetKart(
                       enCokHarcananKategoriData,
                       ikonlar,
+                      context,
                     ),
                   ] else ...[
                     Flexible(

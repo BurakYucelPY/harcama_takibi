@@ -29,10 +29,6 @@ class LoginProvider extends ChangeNotifier {
     });
   }
 
-  void goToRegister(BuildContext context) {
-    context.goNamed(Rotalar.registerName);
-  }
-
   void _setLoading(bool value) {
     _isLoading = value;
     notifyListeners();

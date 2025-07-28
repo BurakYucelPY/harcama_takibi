@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:harcama_takibi/Route/identify_routes.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:harcama_takibi/screens/Login/Register/register.dart';
@@ -224,7 +226,7 @@ class RegisterView extends StatelessWidget {
                           const SizedBox(height: 20),
                           TextButton(
                             onPressed: () {
-                              Navigator.pop(context);
+                              context.goNamed(Rotalar.loginName);
                             },
                             child: Text(
                               'register.login_link'.tr(),

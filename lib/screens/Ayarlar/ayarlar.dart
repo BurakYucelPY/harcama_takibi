@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:go_router/go_router.dart';
-import 'package:harcama_takibi/Route/identify_routes.dart';
 import '../../db/objectbox_service.dart';
 import '../Ekle/ekle.dart';
 import 'ayarlar_view.dart';
@@ -34,15 +32,7 @@ class AyarlarProvider extends ChangeNotifier {
     ).toTheme;
   }
 
-  void goToProfil(BuildContext context) {
-    context.goNamed(Rotalar.profilName);
-  }
-
-  void goToDil(BuildContext context) {
-    context.goNamed(Rotalar.dilName);
-  }
-
-  void toggleTheme() {
+  void toggleTemaTus() {
     _isDarkMode = !_isDarkMode;
     notifyListeners();
   }

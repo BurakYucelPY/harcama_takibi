@@ -264,9 +264,8 @@ class AnasayfaView extends StatelessWidget {
                                 Row(
                                   children: [
                                     Icon(Icons.receipt_long,
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .tertiary,
+                                        color:
+                                            Theme.of(context).colorScheme.error,
                                         size: 24),
                                     const SizedBox(width: 8),
                                     Expanded(
@@ -457,9 +456,8 @@ class AnasayfaView extends StatelessWidget {
                               contentPadding: const EdgeInsets.symmetric(
                                   horizontal: 16, vertical: 8),
                               leading: CircleAvatar(
-                                backgroundColor: Theme.of(context)
-                                    .colorScheme
-                                    .primaryContainer,
+                                backgroundColor:
+                                    Theme.of(context).colorScheme.tertiary,
                                 child: Icon(
                                   harcama.ikon,
                                   color: Theme.of(context).colorScheme.primary,

@@ -50,6 +50,7 @@ class OrtakWidgets {
   static Widget buildBuyukOzetKart(
     Map<String, dynamic> enCokHarcananKategoriData,
     Map<String, IconData> ikonlar,
+    BuildContext context,
   ) {
     final kategoriAdi = enCokHarcananKategoriData['kategori'] as String;
     final kategoriTutar = enCokHarcananKategoriData['tutar'] as double;
@@ -69,7 +70,7 @@ class OrtakWidgets {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Colors.green.shade50,
+                color: Theme.of(context).colorScheme.tertiary,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Icon(
