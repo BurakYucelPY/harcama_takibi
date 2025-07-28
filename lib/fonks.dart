@@ -9,6 +9,20 @@ void drawerKapat(BuildContext context) {
   }
 }
 
+void anaDrawerAc(BuildContext context) {
+  // Ana scaffold'ı bul ve drawer'ı aç
+  BuildContext? parentContext = context;
+  while (parentContext != null) {
+    final scaffold = Scaffold.maybeOf(parentContext);
+    if (scaffold != null && scaffold.hasDrawer) {
+      scaffold.openDrawer();
+      break;
+    }
+    parentContext =
+        parentContext.findAncestorStateOfType<ScaffoldState>()?.context;
+  }
+}
+
 Drawer ortakDrawer(BuildContext context) {
   return Drawer(
     child: ListView(
@@ -17,9 +31,15 @@ Drawer ortakDrawer(BuildContext context) {
         UserAccountsDrawerHeader(
           accountName: Text(
             'drawer.kullanici_adi'.tr(),
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.surface),
           ),
-          accountEmail: Text('drawer.kullanici_email'.tr()),
+          accountEmail: Text(
+            'drawer.kullanici_email'.tr(),
+            style: TextStyle(color: Theme.of(context).colorScheme.surface),
+          ),
           currentAccountPicture: CircleAvatar(
             backgroundColor: Theme.of(context).colorScheme.primaryContainer,
             child: Icon(
@@ -38,7 +58,7 @@ Drawer ortakDrawer(BuildContext context) {
           title: Text('profil'.tr()),
           onTap: () {
             Navigator.pop(context);
-            context.goNamed('profil');
+            context.goNamed(Rotalar.profilName);
           },
         ),
         const Divider(),

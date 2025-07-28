@@ -33,6 +33,7 @@ GoRouter router = GoRouter(
         return Scaffold(
           key: ValueKey('shell_${context.locale.languageCode}'),
           backgroundColor: Theme.of(context).colorScheme.tertiary,
+          drawer: ortakDrawer(context),
           body: Container(
             key: ValueKey('body_${context.locale.languageCode}'),
             child: navigationShell,

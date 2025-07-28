@@ -33,11 +33,10 @@ class EkleView extends StatelessWidget {
               Icons.person,
               color: Theme.of(context).colorScheme.primary,
             ),
-            onPressed: () => Scaffold.of(context).openDrawer(),
+            onPressed: () => anaDrawerAc(context),
           ),
         ),
       ),
-      drawer: ortakDrawer(context),
       backgroundColor: Theme.of(context).colorScheme.tertiary,
       body: Column(
         children: [
@@ -118,8 +117,7 @@ class EkleView extends StatelessWidget {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.end,
                                         children: [
-                                          const SizedBox(
-                                              height: 35), // Daha fazla boşluk
+                                          const SizedBox(height: 35),
                                           Text(
                                             "${h.tutar.toStringAsFixed(2)} ₺",
                                             style: TextStyle(

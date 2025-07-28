@@ -35,8 +35,8 @@ class DilProvider extends ChangeNotifier {
   void showUnsupportedLanguageMessage(BuildContext context, String dil) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text('$dil dili henüz desteklenmiyor'),
-        backgroundColor: Colors.green,
+        content: Text('$dil dili henüz desteklenmiyor  :('),
+        backgroundColor: Theme.of(context).colorScheme.primary,
       ),
     );
   }

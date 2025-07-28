@@ -35,11 +35,10 @@ class DilView extends StatelessWidget {
                   Icons.person,
                   color: Theme.of(context).colorScheme.primary,
                 ),
-                onPressed: () => Scaffold.of(context).openDrawer(),
+                onPressed: () => anaDrawerAc(context),
               ),
             ),
           ),
-          drawer: ortakDrawer(context),
           backgroundColor: Theme.of(context).colorScheme.tertiary,
           body: Column(
             children: [
