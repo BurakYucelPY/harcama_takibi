@@ -3,6 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:harcama_takibi/Route/identify_routes.dart';
 
+final GlobalKey<ScaffoldState> mainScaffoldKey = GlobalKey<ScaffoldState>();
+
 void drawerKapat(BuildContext context) {
   if (Scaffold.maybeOf(context)?.isDrawerOpen == true) {
     Scaffold.of(context).closeDrawer();
@@ -10,17 +12,8 @@ void drawerKapat(BuildContext context) {
 }
 
 void anaDrawerAc(BuildContext context) {
-  // Ana scaffold'ı bul ve drawer'ı aç
-  BuildContext? parentContext = context;
-  while (parentContext != null) {
-    final scaffold = Scaffold.maybeOf(parentContext);
-    if (scaffold != null && scaffold.hasDrawer) {
-      scaffold.openDrawer();
-      break;
-    }
-    parentContext =
-        parentContext.findAncestorStateOfType<ScaffoldState>()?.context;
-  }
+  // Global key ile direkt ana scaffold'a erişiyoor
+  mainScaffoldKey.currentState?.openDrawer();
 }
 
 Drawer ortakDrawer(BuildContext context) {

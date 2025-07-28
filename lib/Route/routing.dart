@@ -31,7 +31,7 @@ GoRouter router = GoRouter(
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
         return Scaffold(
-          key: ValueKey('shell_${context.locale.languageCode}'),
+          key: mainScaffoldKey,
           backgroundColor: Theme.of(context).colorScheme.tertiary,
           drawer: ortakDrawer(context),
           body: Container(
