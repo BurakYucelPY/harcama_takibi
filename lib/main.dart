@@ -10,10 +10,10 @@ import 'screens/Ayarlar/ayarlar.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // EasyLocalization başlat
+  // EasyLocalization
   await EasyLocalization.ensureInitialized();
 
-  // ObjectBox başlat
+  // ObjectBox
   await ObjectBoxService.instance.init();
 
   runApp(
