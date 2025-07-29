@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'ekle.dart';
-import 'package:harcama_takibi/fonks.dart';
+import 'package:harcama_takibi/app_drawer.dart';
 
 class EkleView extends StatelessWidget {
   const EkleView({super.key});
@@ -33,7 +33,7 @@ class EkleView extends StatelessWidget {
               Icons.person,
               color: Theme.of(context).colorScheme.primary,
             ),
-            onPressed: () => anaDrawerAc(context),
+            onPressed: () => AppDrawer.open(),
           ),
         ),
       ),

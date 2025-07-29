@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
-import '../../../fonks.dart';
+import '../../../app_drawer.dart';
 import '../../../widgets/ortak_widgets.dart';
 import 'dil.dart';
 
@@ -35,7 +35,7 @@ class DilView extends StatelessWidget {
                   Icons.person,
                   color: Theme.of(context).colorScheme.primary,
                 ),
-                onPressed: () => anaDrawerAc(context),
+                onPressed: () => AppDrawer.open(),
               ),
             ),
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import '../../fonks.dart';
+import 'package:harcama_takibi/app_drawer.dart';
 import 'package:harcama_takibi/db/objectbox_harcama.dart';
 
 class AnasayfaView extends StatelessWidget {
@@ -49,12 +49,13 @@ class AnasayfaView extends StatelessWidget {
               Icons.person,
               color: Theme.of(context).colorScheme.primary,
             ),
-            onPressed: () => anaDrawerAc(context),
+            onPressed: () => AppDrawer.open(),
           ),
         ),
       ),
       backgroundColor: Theme.of(context).colorScheme.tertiary,
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(

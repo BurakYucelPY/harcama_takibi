@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:harcama_takibi/Route/identify_routes.dart';
+import 'package:harcama_takibi/app_drawer.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
-import '../../fonks.dart';
 import 'ayarlar.dart';
 
 class AyarlarView extends StatelessWidget {
@@ -36,7 +36,7 @@ class AyarlarView extends StatelessWidget {
                   Icons.person,
                   color: Theme.of(context).colorScheme.primary,
                 ),
-                onPressed: () => anaDrawerAc(context),
+                onPressed: () => AppDrawer.open(),
               ),
             ),
           ),

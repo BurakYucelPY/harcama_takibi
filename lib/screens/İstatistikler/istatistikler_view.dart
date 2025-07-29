@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:harcama_takibi/widgets/etkilesimli_grafik_widget.dart';
-import 'package:harcama_takibi/fonks.dart';
+import 'package:harcama_takibi/app_drawer.dart';
 import '../../widgets/ortak_widgets.dart';
 
 class IstatistiklerView extends StatelessWidget {
@@ -54,7 +54,7 @@ class IstatistiklerView extends StatelessWidget {
               Icons.person,
               color: Theme.of(context).colorScheme.primary,
             ),
-            onPressed: () => anaDrawerAc(context),
+            onPressed: () => AppDrawer.open(),
           ),
         ),
       ),

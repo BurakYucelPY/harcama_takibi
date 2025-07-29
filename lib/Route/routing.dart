@@ -5,7 +5,7 @@ import 'package:harcama_takibi/Route/identify_routes.dart';
 import 'package:harcama_takibi/screens/Login/login.dart';
 import 'package:harcama_takibi/screens/Login/Register/register.dart';
 import 'branches.dart';
-import '../fonks.dart';
+import '../app_drawer.dart';
 
 GoRouter router = GoRouter(
   initialLocation: Rotalar.loginPath,
@@ -31,9 +31,9 @@ GoRouter router = GoRouter(
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
         return Scaffold(
-          key: mainScaffoldKey,
+          key: AppDrawer.key,
           backgroundColor: Theme.of(context).colorScheme.tertiary,
-          drawer: ortakDrawer(context),
+          drawer: AppDrawer.build(context),
           body: Container(
             key: ValueKey('body_${context.locale.languageCode}'),
             child: navigationShell,
@@ -63,7 +63,7 @@ GoRouter router = GoRouter(
                               .withOpacity(0.6),
                     ),
                     onPressed: () {
-                      drawerKapat(context);
+                      AppDrawer.close();
                       navigationShell.goBranch(0,
                           initialLocation: (navigationShell.currentIndex == 0));
                     },
@@ -80,7 +80,7 @@ GoRouter router = GoRouter(
                               .withOpacity(0.6),
                     ),
                     onPressed: () {
-                      drawerKapat(context);
+                      AppDrawer.close();
                       navigationShell.goBranch(1,
                           initialLocation: (navigationShell.currentIndex == 1));
                     },
@@ -97,7 +97,7 @@ GoRouter router = GoRouter(
                               .withOpacity(0.6),
                     ),
                     onPressed: () {
-                      drawerKapat(context);
+                      AppDrawer.close();
                       navigationShell.goBranch(2,
                           initialLocation: (navigationShell.currentIndex == 2));
                     },
@@ -114,7 +114,7 @@ GoRouter router = GoRouter(
                               .withOpacity(0.6),
                     ),
                     onPressed: () {
-                      drawerKapat(context);
+                      AppDrawer.close();
                       navigationShell.goBranch(3,
                           initialLocation: (navigationShell.currentIndex == 3));
                     },

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
-import '../../../fonks.dart';
+import '../../app_drawer.dart';
 import 'hakkinda.dart';
 
 class HakkindaView extends StatelessWidget {
@@ -34,7 +34,7 @@ class HakkindaView extends StatelessWidget {
                   Icons.person,
                   color: Theme.of(context).colorScheme.primary,
                 ),
-                onPressed: () => anaDrawerAc(context),
+                onPressed: () => AppDrawer.open(),
               ),
             ),
           ),
